@@ -76,12 +76,12 @@ WSGI_APPLICATION = 'GalleryProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'PostgreDB',
-        'USER': 'postgres',
-        'PASSWORD': '257853',
-        'HOST': 'localhost',
-        'PORT': '54324'
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'NgaKhant$Gallery',
+        'USER': 'NgaKhant',
+        'PASSWORD': '257853AKZakz@',
+        'HOST': 'NgaKhant.mysql.pythonanywhere-services.com',
+        'PORT': '3306'
     }
 }
 
