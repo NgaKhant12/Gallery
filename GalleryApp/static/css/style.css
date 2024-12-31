@@ -1,0 +1,19 @@
+
+#hide_button{
+    display: none;
+}
+ @media (max-width:700px) {
+    .phone_navbar{
+        width: 50%;
+        display: block;
+        border: 2px solid red;
+        float: right;
+    }
+    
+}
+
+.phone_navbar{
+    display: inline;
+    float: left;
+    width: 100%;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+
+</head>
+<body>
+    
+        
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 col-lg-6">
+                    
+                    <a href="{% url 'gallery' %}" class="btn btn-outline-secondary mx-5 mt-3 mb-2 btn-sm"><i class="fas fa-arrow-left"></i><div class="d-none d-md-inline d-lg-inline mx-2">Go Back</div></a>
+                    <div class="card mx-5 borders">
+                        
+                        <div class="card-header mb-2"><h2 class="h2color">Edit Photo</h2></div>
+                        <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3"> 
+                                {{form.category}}
+                                {{form.image}}
+
+                                <input type="text" name="update_des">
+                                
+                            </div>
+                            <button type="submit">Update</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+</body>
+</html>

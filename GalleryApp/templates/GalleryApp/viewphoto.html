@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/Favicon/192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/Favicon/48x48.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/Favicon/512x512 copy.png' %}">
+    <link rel="manifest" href="{% static '/favicon/site.webmanifest' %}">
+    <style>
+        @media (max-width: 1600px) {
+            .images{
+
+            height: 550px;
+            max-width: 75%;
+            object-fit: contain;
+            
+            }
+        }
+        @media (max-width: 1200px) {
+            .images{
+            object-fit: cover;
+            height: 550px;
+            max-width: 100%;
+            
+            }
+        }
+        @media (max-width: 992px) {
+            .images{
+
+            height: 500px;
+            object-fit: cover;
+            max-width: 100%;
+            
+            }
+        }
+        @media (max-width: 768px) {
+            .images{
+
+            height: 350px;
+            object-fit: cover;
+            max-width: 100%;
+            }
+        }
+        
+        
+        
+       
+        
+        
+    </style>
+</head>
+<body class="m-2 m-md-3 m-lg-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-11 col-lg-8">
+                {% if views %}
+            <a href="{% url 'views' %}" class="btn btn-outline-success text-dark my-2 btn-sm"><i class="fas fa-arrow-left mx-2"></i><span class="d-none d-sm-inline">Go Back</span></a>
+            {% else %}
+            <a href="{% url 'gallery' %}" class="btn btn-outline-success text-darkmy-2 btn-sm"><i class="fas fa-arrow-left mx-2"></i><span class="d-none d-sm-inline">Go Back</span></a>
+            {% endif %}
+                <div >
+                    <div class="card p-1 m-1 shadow rounded-3">
+                        <h3 class=" fw-bold m-2">{{photo.description}}</h3>
+                      <div class="card-body">
+                        <img class="images border border-lightred border-2  rounded-3 shadow w-100" src="{{photo.image.url}}" alt="">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+
+    <hr>
+
+
+
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class=" mt-5">Delete Category & Photo</h1>
+        <hr>
+        <a href="{% url 'gallery' %}" class="btn btn-outline-primary btn-lg">Cancel</a>
+
+        <button class="btn btn-outline-danger btn-lg" data-bs-toggle = "modal" data-bs-target="#delete">Delete</button>
+    
+    <div class="modal fade" id="delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-warning" >Delete</h3>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-danger">Are you sure to delete this category ?</h6>       
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-primary">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {% for pk in pk1 %}
+            <h2>pk</h2>
+        {% endfor %}
+</div>
+
+    
+<script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

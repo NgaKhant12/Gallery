@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/Favicon/192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/Favicon/48x48.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/Favicon/512x512 copy.png' %}">
+    <link rel="manifest" href="{% static '/favicon/site.webmanifest' %}">
+
+    <style>
+      body{
+        background-image: linear-gradient(
+         to bottom right,
+         rgb(164,221,212),
+         hsl(0,75%,78%)
+     )
+      }
+      nav div ul li a::after,nav div ul li button::after{
+        content: '';
+        width: 0;
+        height: 2px;
+        background: #d1928e;
+        display: block;
+        margin: auto;
+        transition: 0.5s;
+      }
+      nav div ul li a:hover::after,nav div ul li button:hover::after{
+        width: 100%;
+      }
+
+      @media(max-width:992px){
+        nav div ul li a{
+          width: 11%;
+        }
+      }
+      
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top" style="font-size: 17px;">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'gallery' %}" style="font-size: 22px;">Tech Titan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="btn btn-outline-light" id="hide_button" href="{% url 'gallery' %}"><i class="fas fa-x"></i></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'gallery' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'views' %}">View</a>
+            </li>
+            <li class="nav-item">
+                <form action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                  <button class="nav-link"  type="submit">Log Out</button>
+                </form>
+              </li>
+          
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" name="search_name" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <footer class="text-center text-muted my-5">
+   
+      &copy; Tech Titan &nbsp;Copyright 2024 &trade;;
+  
+    </footer>
+    <br><br><br><br>
+    <script src="{% static '/static/bootstrap/js/bootstrap.min.js' %}" ></script>
+
+
+</body>
+</html>
+
+

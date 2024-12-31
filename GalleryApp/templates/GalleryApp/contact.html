@@ -1,0 +1,96 @@
+{% extends 'GalleryApp/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
+        body{
+            background-image: linear-gradient(
+             to bottom right,
+             rgb(164,221,212),
+             hsl(0,75%,78%)
+         );
+        }
+
+        .sub-container{
+            width: 70%;
+            
+            margin-left: 15%;
+            border-radius: 15px;
+            background-color: white;
+            box-shadow: 3px 3px 50px #aaaaaa;
+            background: transparent;
+            background-position: 93%;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        .form-control{
+            background: transparent;
+            font-size: 17px;
+        }
+        .form-control:focus{
+            background: #c9c3c3;
+            color: black;
+            font-size: 17px;
+        }
+        .send_button{
+            margin: 7px auto;
+                        
+        }
+        @media(max-width:992px){
+            h2{
+                text-align:center;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12 ">
+                <div class="sub-container m-5 p-3 mx-auto">
+                    <h2 class="m-3">Contact</h2>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="my-3 form-floating">
+                            <input required type="text" class="form-control" name="contact_name" id="contact_name" placeholder="Name">
+                            <label for="contact_name">Name</label>
+                        </div>
+                        <div class="mb-3 form-floating">
+                            <input required type="email" class="form-control" name="contact_email" id="contact_email" placeholder="Email">
+                            <label for="contact_email">Email</label>
+                        </div>
+                        <div class="mb-3">
+                            <textarea required name="contact_message" id="contact_message" class="form-control" placeholder="Message" maxlength="500"></textarea>
+                            
+                        </div>
+                        <div class="mb-3  mx-auto mt-4" style="text-align:center;">
+                            <button class="btn btn-outline-success btn-lg w-50" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
+                                    <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
+                                  </svg>
+                            Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <h1></h1>
+    </div>
+</body>
+</html>
+
+{% endblock content %}

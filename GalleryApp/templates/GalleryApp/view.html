@@ -1,0 +1,104 @@
+{% extends "GalleryApp/base.html" %}
+
+
+{% block content %}
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Home</title> 
+    
+    <style>
+      .card-bg{
+        background-image: linear-gradient( 
+              to bottom right,
+              rgba(164,221,212,1),
+              hsl(0,75%,78%)
+          );
+      }
+    
+    </style>
+
+    
+</head>
+<body>
+
+      <div class="continer py-2 px-5">
+              <div class="row g-3">
+                {% for photo in photos %}
+                  <div class="col-sm-6 col-md-6 col-lg-4">
+                    <div class="card" style="width: 200px; height:200px;">
+                      <img src="{{ photo.image.url }}" class="card-img-top image" alt="I style="max-height:350px"mage" >
+                      <div class="card-body">
+                        <h5 class="card-title">{{photo.title}} </h5>
+                        <p class="card-text">{{photo.description}}</p>
+                        <a href="{% url 'photo' photo.id %}?views=views" class="btn btn-outline-dark w-75">View</a>
+                      </div>
+                    </div>
+                  </div>
+              {% endfor %}
+              </div>
+            
+
+
+             Photo End
+            
+      </div>
+        
+      <footer class="text-center text-muted mb-4 mt-0">
+   
+        &copy; &nbsp;Copyright 2024 &trade;;
+    
+      </footer>
+
+
+
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Views</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row g-1">
+        {% for photo in photos %}
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card m-1 p-1 shadow rounded-3">
+            <div class="card-body">
+              <h4 class="card-title">{{photo.category}}</h4>
+            <img src="{{photo.image.url}}" class="card-img-top rounded-3" style="object-fit: cover; max-height:300px; min-height:299px;">
+
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="mt-4 mb-0" style="height: 40px;"><a href="{% url 'photo' photo.id %}?views=views" class="btn btn-outline-primary w-100">View</a></div>
+            </div>
+          </div>
+        </div>
+
+        
+        
+        {% endfor %}
+        
+
+
+
+      
+    </div>
+  </div>
+
+</body>
+</html>
+
+{% endblock content %}

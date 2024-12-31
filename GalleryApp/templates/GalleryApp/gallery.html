@@ -1,0 +1,131 @@
+{% extends "GalleryApp/base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/fontawesome/css/all.min.css' %}">
+    <style>
+        .images {
+            height: 200px;
+            object-fit:cover;
+        }
+        .right{
+            float: right;
+
+            
+        }
+        .width{
+            font-style: italic;
+        }
+                 
+        
+        @media (max-width: 1600px) {
+            .example{
+                width: 160px;
+                max-width: 100%;
+                font-style: italic;
+            }
+
+        }
+        
+        @media (max-width: 992px) {
+            .example{
+                width: 150px;
+                max-width: 100%;
+                text-align: left;
+                font-style: italic;
+                
+            }
+            
+        }
+        @media (max-width: 768px) {
+            .example{
+                width: 75px;
+                max-width: 100%;
+                font-size: smaller;
+                text-align: left;
+                font-style: italic;
+            }
+           
+        }
+        
+    </style>
+</head>
+
+
+
+<body >
+    
+    <div class="container">
+        <div class="row g-2">
+            <div class="col-3 col-md-4 col-lg-3">
+                <div class="card mr-md-3 mr-lg-4 shadow rounded-3">
+                    <div class="card-header" ><i class="fas fa-list"></i><div class="d-none d-md-inline d-lg-inline mx-2">Categories</div></div>
+                    <div class="list-group list-group-flush">
+                        
+                        <a class="list-group-item list-group-item-action btn btn-outline-info" href="{% url 'gallery' %}" ><i class="fas fa-images "></i><div class="d-inline mx-1 fst-italic">All</div><span class="badge  bg-info  rounded-pill right">{{count}}</span></a>
+    
+                        
+                        
+                            {% for category in categories %}
+                                <a class="width list-group-item list-group-item-action btn btn-outline-info" href="{% url 'gallery' %}?category={{category.name}}" >
+                                    <span class="">{{category.name}}  </span> 
+                                </a>                            
+                            {% endfor %}
+                            
+
+                    </div>
+                    <a href="{% url 'add' %}" class="btn btn-dark btn-block btn-sm mb-2"><i class="fas fa-add"></i><div class="d-none d-md-inline d-lg-inline mx-2">Add Photo</div></a> 
+                    
+                   
+                </div>
+
+            </div>
+            
+            <div class="col-9 col-md-8 col-lg-9">
+                
+                <div class="row g-2">
+                    
+                    {% for photo in photos %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card m-1 p-1 shadow rounded-3">
+                                <img class="images rounded-3" src="{{photo.image.url}}" alt="">
+                                <div class="card-body">
+                                    <h4>{{photo.category.name}}</h4>
+                                    <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm mx-2 w-50 ">View</a>
+                                {% comment %} <a href="{% url 'update' photo.id %}" class="btn btn-outline-success btn-sm mx-1"><i class="fas fa-pencil"></i></a> {% endcomment %}
+                                <a  href="{% url 'delete' photo.id %}"class="right btn btn-outline-danger btn-sm w-25"><i class="fas fa-trash"></i>
+                                </a>
+                                
+                                 
+                            </div>  
+                        </div>
+                    </div>
+                    {% empty %}
+                        <h3>No Photos</h3>
+                    {% endfor %}
+                    
+                    
+
+                </div>
+                
+            </div>
+        
+        </div>
+        
+    </div>
+    
+    
+    
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    
+</body>
+</html>
+
+{% endblock %}

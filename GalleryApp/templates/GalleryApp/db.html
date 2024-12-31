@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB</title>
+</head>
+<body>
+   {% for da in data1 %}
+        <h3>{{da}} </h3>
+    
+    {% empty %}
+    <h3>There is no data.</h3>
+    {% endfor %}
+</body>
+</html>
